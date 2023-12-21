@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: young-moscow-server-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: young-moscow-server
+  template:
+    metadata:
+      labels:
+        app: young-moscow-server
+    spec:
+      containers:
+      - name: young-moscow-server
+        image: stermak/young-moscow-server:latest
+        ports:
+        - containerPort: 12345
